@@ -1,44 +1,40 @@
+"use client"
 import { NvimBadge } from "@/components/atoms/nvim-badge";
+import { useNvimNavigate } from "@/hooks/nvim-navigation";
 import { Card } from "@/components/ui/card";
-import { FileText, GitBranch, Github, LayoutDashboard } from "lucide-react";
+import { GitBranch } from "lucide-react";
 import Link from "next/link";
+import { Header } from "@/components/organisms/header";
+import { ProjectsDialog } from "@/components/organisms/projects-dialog";
+import { KeyBindedButton } from "@/components/molecules/key-binded-element";
+import { useNvimStore } from "@/store/nvim-store";
 
 
 export default function Home() {
-  return <div className="flex justify-center items-center h-screen">
-    <main className="w-full">
-      <Card className="max-w-2xl font-mono mx-auto">
-        <div className="px-4 flex flex-col gap-6">
-          <div className="border w-full flex justify-between p-2 rounded">
-            <Link href="/">
-              {"</"}<span className="text-primary">#</span>{">GenrevZapa"}
-            </Link>
-            <div className="flex gap-5">
-              <Link className="flex gap-2 items-start" href="/">
-                <FileText className="size-5" />
-                <p className="font-thin">Resume</p>
-              </Link>
-              <Link className="flex gap-2 items-start" href="/">
-                <LayoutDashboard className="size-5" />
-                <p className="font-thin">Projects</p>
-              </Link>
-              <Link className="flex gap-2 items-start" href="/">
-                <Github className="size-5" />
-                <p className="font-thin">Github</p>
-              </Link>
-            </div>
-          </div>
 
-          <div className="flex gap-[1ch] mt-1">
-            <h2 className="font-bold text-primary">
+  const { index, length } = useNvimNavigate({
+    id: "main-page",
+  })
+
+  const enabled = useNvimStore(state => state.enabled);
+  const mode = useNvimStore(state => state.mode);
+
+  return <div className="flex justify-center items-center h-screen">
+    <main className="w-full" id="main-page">
+      <Card className="max-w-4xl font-mono mx-auto">
+        <div className="px-4 flex flex-col gap-6">
+          <Header />
+          <Link href="https://www.linkedin.com/company/focus-global-inc" target="_blank" className="group flex gap-[1ch] mt-1 nvim-line" tabIndex={0}>
+            <h2 className="font-bold text-primary select-text">
               # Full Stack Software Engineer
             </h2>
-            <Link className="" href="/">
+            <span className="group-focus:underline group-focus:underline-offset-2">
               @FocusGlobalInc
-            </Link>
-          </div>
+            </span>
+          </Link>
+          {JSON.stringify({ enabled })}
 
-          <p>
+          <p tabIndex={0} className="nvim-line">
             Startup enthusiast with a love for early-stage chaos — co-founded <Link href="https://www.aetherlenz.com" className="underline underline-offset-2 font-semibold">
               AetherLenz
             </Link>.
@@ -49,22 +45,25 @@ export default function Home() {
               Contents
             </label>
             <div className="mt-4 space-y-1.5">
-              <div className="flex items-center gap-2">
-                <NvimBadge text="P" />
-                Projects
-              </div>
-              <div className="flex items-center gap-2">
+              <KeyBindedButton keyBind="P" content={(ref) => <ProjectsDialog>
+                <button className="group w-full flex items-center gap-2 nvim-line" ref={ref}>
+                  <NvimBadge text="P" />
+                  Projects
+                </button>
+              </ProjectsDialog>} />
+
+              <button className="group w-full flex items-center gap-2 nvim-line">
                 <NvimBadge text="B" />
                 Blogs
-              </div>
-              <div className="flex items-center gap-2">
+              </button>
+              <button className="group w-full flex items-center gap-2 nvim-line">
                 <NvimBadge text="L" />
                 Links
-              </div>
-              <div className="flex items-center gap-2">
+              </button>
+              <button className="group w-full flex items-center gap-2 nvim-line">
                 <NvimBadge text="/" />
                 Search
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -72,7 +71,7 @@ export default function Home() {
         <div className="flex items-center justify-between mt-2">
           <div className="flex">
             <p className="px-2 text-card-foreground w-fit bg-[#7880B5]">
-              NORMAL
+              {mode}
             </p>
             <p className="px-2 text-[#7880B5] bg-background">
               <GitBranch className="inline-flex h-4" /> main
@@ -86,14 +85,13 @@ export default function Home() {
               utf-8
             </p>
             <p className="px-3 bg-background">
-              Top
+              {((index + 1) * 100 / length).toFixed()}%
             </p>
             <p className="px-2 text-card-foreground w-fit bg-[#7880B5] tracking-wider">
-              1:1
+              {index + 1}:{length}
             </p>
           </div>
         </div>
-
       </Card>
     </main>
   </div>;
