@@ -155,6 +155,9 @@ export const ProjectTree = ({
           <p className="px-2 text-[#7880B5] bg-popover">
             <GitBranch className="inline-flex h-4" /> main
           </p>
+          <p className="px-2">
+            projects.tsx
+          </p>
         </div>
         <div className="flex">
           <p className="px-2 text-card-foreground w-fit bg-[#7880B5] tracking-wider">
