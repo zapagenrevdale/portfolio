@@ -137,7 +137,7 @@ export function ProjectsDialog({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (open) {
-      setText("");
+      setData(projectData)
     } else {
       setMode("NORMAL");
     }
@@ -165,7 +165,6 @@ export function ProjectsDialog({ children }: { children: React.ReactNode }) {
               <LayoutDashboard className="size-5" />
               Projects
             </div>
-            <div>{text}</div>
           </DialogTitle>
           <DialogDescription>
             Cool and exciting projects I’ve been lucky to be part of — building,

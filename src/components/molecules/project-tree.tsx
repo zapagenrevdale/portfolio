@@ -1,7 +1,7 @@
 "use client";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import React from "react";
-import { Folder, Globe, FileText, GitBranch } from "lucide-react";
+import { Folder, Globe, FileText, GitBranch, Search } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -141,17 +141,20 @@ export const ProjectTree = ({
             </div>
           )}
         </div>
+        <p className="px-2 absolute right-2 bottom-2 bg-background/90 text-xs py-1 rounded">
+          {search}
+          {search === "q" || search === "bd" ? <span className="ml-1.5 text-sm font-semibold text-primary">!</span> : <Search className="ml-1.5 inline-flex size-4 rotate-90" />}
+        </p>
       </ScrollArea>
 
       <div className="flex items-center justify-between mt-2">
-        <div className="flex">
+        <div className="flex items-center">
           <p className="px-2 text-popover-foreground w-fit bg-[#7880B5]">
             {mode}
           </p>
           <p className="px-2 text-[#7880B5] bg-popover">
             <GitBranch className="inline-flex h-4" /> main
           </p>
-          <p className="px-2">projects.tsx</p>
         </div>
         <div className="flex">
           <p className="px-2 text-card-foreground w-fit bg-[#7880B5] tracking-wider">

@@ -39,9 +39,6 @@ export function DialogInput({
         value={text}
         placeholder="Search or command..."
         onChange={(e) => callback(e.target.value)}
-        onBlur={() => {
-          setText("");
-        }}
         ref={inputRef}
         className="pl-10 rounded-b border-none"
       />
