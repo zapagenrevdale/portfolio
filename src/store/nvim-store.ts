@@ -1,17 +1,17 @@
-import { create } from 'zustand'
+import { create } from "zustand";
 
 type VimModes = "NORMAL" | "VISUAL" | "INSERT";
 
 type NvimStore = {
-  enabled: boolean;
+  group: string;
   mode: VimModes;
-  setEnabled: (val: boolean) => void;
+  setGroup: (val: string) => void;
   setMode: (val: VimModes) => void;
-}
+};
 
 export const useNvimStore = create<NvimStore>((set) => ({
-  enabled: true,
-  setEnabled: (val: boolean) => set(() => ({ enabled: val })),
+  group: "home",
   mode: "NORMAL",
-  setMode: (val: VimModes) => set(() => ({ mode: val }))
-}))
+  setGroup: (val: string) => set(() => ({ group: val })),
+  setMode: (val: VimModes) => set(() => ({ mode: val })),
+}));

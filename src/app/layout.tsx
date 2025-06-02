@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider";
 import { JetBrains_Mono, Source_Serif_4, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/providers/query";
@@ -31,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script src="https://unpkg.com/react-scan/dist/auto.global.js" />
+      </head>
       <body
         className={`${jetBrainsMono.variable} ${notoSans.variable} ${sourceSerif.variable} antialiased`}
       >
@@ -40,9 +43,7 @@ export default function RootLayout({
           //enableSystem
           disableTransitionOnChange
         >
-          <QueryProvider>
-            {children}
-          </QueryProvider>
+          <QueryProvider>{children}</QueryProvider>
         </ThemeProvider>
       </body>
     </html>
