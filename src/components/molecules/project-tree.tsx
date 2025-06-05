@@ -7,6 +7,12 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useNvimNavigate } from "@/hooks/nvim-navigation";
 import { useNvimStore } from "@/store/nvim-store";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 
 export type TreeItemType = {
   name: string;
@@ -141,10 +147,18 @@ export const ProjectTree = ({
             </div>
           )}
         </div>
-        <p className="px-2 absolute right-2 bottom-2 bg-background/90 text-xs py-1 rounded">
-          {search}
-          {search === "q" || search === "bd" ? <span className="ml-1.5 text-sm font-semibold text-primary">!</span> : <Search className="ml-1.5 inline-flex size-4 rotate-90" />}
-        </p>
+        <Tooltip>
+          <TooltipTrigger className="px-2 absolute right-2 bottom-2 bg-background/90 text-xs py-1 rounded">
+            {search}
+            {search === "q" || search === "bd" ? <span className="ml-1.5 text-sm font-semibold text-primary leading-0">!</span> : <Search className="ml-1.5 inline-flex size-4 rotate-90" />}
+          </TooltipTrigger>
+          <TooltipContent className="rounded-xs">
+            <p className="">
+              press &quot;<strong>/</strong>&quot; to search
+            </p>
+          </TooltipContent>
+        </Tooltip>
+
       </ScrollArea>
 
       <div className="flex items-center justify-between mt-2">

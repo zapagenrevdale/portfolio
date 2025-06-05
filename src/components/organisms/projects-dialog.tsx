@@ -14,6 +14,7 @@ import { LayoutDashboard } from "lucide-react";
 import { useNvimStore } from "@/store/nvim-store";
 import { useCallback, useEffect, useState } from "react";
 import { DialogInput } from "../molecules/dialog-input";
+import { NvimBadge } from "../atoms/nvim-badge";
 
 const projectData = [
   {
@@ -164,6 +165,9 @@ export function ProjectsDialog({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-2">
               <LayoutDashboard className="size-5" />
               Projects
+            </div>
+            <div className="flex gap-1.5 text-xs pr-8 items-center text-foreground/80">
+              <span className="bg-popover-foreground/20 text-primary font-bold size-4.5 flex justify-center items-center">/</span> search
             </div>
           </DialogTitle>
           <DialogDescription>

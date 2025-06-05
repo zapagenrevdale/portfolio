@@ -1,8 +1,8 @@
+import { motion } from "motion/react";
 import Confetti from "react-confetti";
 import { useInputKeyBinding } from "@/hooks/nvim-keybind";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
 
 export function MainInput() {
@@ -15,16 +15,19 @@ export function MainInput() {
     group: "home",
   });
 
+  const confetti = <motion.div
+    className="absolute top-0 left-0 w-full h-full"
+    initial={{ opacity: 1 }}
+    animate={{ opacity: 0 }}
+    transition={{ delay: 4, duration: 1 }}
+  >
+    <Confetti className="mx-auto" width={800} height={500} />
+  </motion.div>
+
+
   return (
     <>
-      <div
-        className={cn(
-          "absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out",
-          show ? "opacity-100" : "opacity-0",
-        )}
-      >
-        <Confetti className="mx-auto" width={800} height={500} />
-      </div>
+      {show ? confetti : null}
       <form
         className="relative w-full group mt-1"
         onSubmit={(e) => {
@@ -37,7 +40,7 @@ export function MainInput() {
             );
           }
           setShow(true);
-          setTimeout(() => setShow(false), 2000);
+          setTimeout(() => setShow(false), 6000);
           setText("");
         }}
       >
