@@ -8,7 +8,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowDown, ArrowUp, Github, Instagram, Link2, Linkedin } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  Github,
+  Instagram,
+  Link2,
+  Linkedin,
+} from "lucide-react";
 import { useNvimStore } from "@/store/nvim-store";
 import { useEffect, useState } from "react";
 import { DialogInput } from "../molecules/dialog-input";

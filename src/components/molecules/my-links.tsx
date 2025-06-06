@@ -13,8 +13,15 @@ import {
 import Link from "next/link";
 import { useClickableKeyBinding } from "@/hooks/nvim-keybind";
 
-
-const MyLink = ({ link: { url, title, Icon }, index, group }: { link: { url: string; title: string; Icon: LucideIcon; }; index: number; group: string }) => {
+const MyLink = ({
+  link: { url, title, Icon },
+  index,
+  group,
+}: {
+  link: { url: string; title: string; Icon: LucideIcon };
+  index: number;
+  group: string;
+}) => {
   const ref = useClickableKeyBinding<HTMLAnchorElement>({
     keyBind: {
       key: index.toString(),
@@ -22,25 +29,27 @@ const MyLink = ({ link: { url, title, Icon }, index, group }: { link: { url: str
     group: group,
   });
 
-  return <Link
-    href={url}
-    target="_blank"
-    data-nvim={group}
-    key={title}
-    ref={ref}
-    className="nvim-line w-full flex px-4 items-center gap-4 group"
-  >
-    <span className="text-current/60 group-focus:text-current group-focus:font-semibold text-sm group-hover:font-semibold group-hover:text-current">
-      {index}
-    </span>
-    <p className="flex overflow-hidden text-sm gap-2 py-1">
-      <Icon className="size-5 group-focus:text-purple-200 group-hover:text-primary/80" />
-      <span className="line-clamp-2 sm:line-clamp-none break-words group-focus:text-primary group-hover:underline group-focus:underline group-hover:text-primary/80">
-        {title}
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      data-nvim={group}
+      key={title}
+      ref={ref}
+      className="nvim-line w-full flex px-4 items-center gap-4 group"
+    >
+      <span className="text-current/60 group-focus:text-current group-focus:font-semibold text-sm group-hover:font-semibold group-hover:text-current">
+        {index}
       </span>
-    </p>
-  </Link>
-}
+      <p className="flex overflow-hidden text-sm gap-2 py-1">
+        <Icon className="size-5 group-focus:text-purple-200 group-hover:text-primary/80" />
+        <span className="line-clamp-2 sm:line-clamp-none break-words group-focus:text-primary group-hover:underline group-focus:underline group-hover:text-primary/80">
+          {title}
+        </span>
+      </p>
+    </Link>
+  );
+};
 
 export const LinkList = ({
   data,
@@ -67,7 +76,12 @@ export const LinkList = ({
           id={`blog-list-${search}`}
         >
           {data.map((link, index) => (
-            <MyLink key={link.title} link={link} index={index + 1} group={group} />
+            <MyLink
+              key={link.title}
+              link={link}
+              index={index + 1}
+              group={group}
+            />
           ))}
         </div>
         <Tooltip>

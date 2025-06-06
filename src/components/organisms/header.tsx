@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FileText, Github, LayoutDashboard } from "lucide-react";
+import { Github, LayoutDashboard } from "lucide-react";
 import { ProjectsDialog } from "./projects-dialog";
 import { useClickableKeyBinding } from "@/hooks/nvim-keybind";
 
