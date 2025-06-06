@@ -58,10 +58,11 @@ export default function Home() {
               <p className="px-2 text-[#7880B5] bg-background">
                 <GitBranch className="inline-flex h-4" /> main
               </p>
-              <p className="px-2">homepage.tsx</p>
+              <p className="hidden sm:inline-flex px-2">homepage.tsx</p>
+              <p className="sm:hidden px-2">home.tsx</p>
             </div>
             <div className="flex">
-              <p className="px-2">utf-8</p>
+              <p className="px-2 hidden sm:inline-flex">utf-8</p>
               <p className="px-3 bg-background">
                 {(((index + 1) * 100) / length).toFixed()}%
               </p>

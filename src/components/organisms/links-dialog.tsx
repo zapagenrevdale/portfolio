@@ -8,31 +8,31 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowDown, ArrowUp, FileDigit } from "lucide-react";
+import { ArrowDown, ArrowUp, Github, Instagram, Link2, Linkedin } from "lucide-react";
 import { useNvimStore } from "@/store/nvim-store";
 import { useEffect, useState } from "react";
 import { DialogInput } from "../molecules/dialog-input";
-import { BlogList } from "../molecules/blog-list";
+import { LinkList } from "../molecules/my-links";
 
 const blogList = [
   {
-    title: "OMNI: An Architecture Overview",
-    url: "/blogs/omni",
-    date: "2025-06-06T04:00:00.000Z",
+    title: "Github",
+    url: "https://github.com/zapagenrevdale",
+    Icon: Github,
   },
   {
-    title: "A Glimpse into AetherLenz's Architecture",
-    url: "/blogs/aetherlenz-architecture",
-    date: "2025-06-06T04:00:00.000Z",
+    title: "LinkedIn",
+    url: "https://www.linkedin.com/in/genrev-dale-zapa",
+    Icon: Linkedin,
   },
   {
-    title: "Lazy Reader: The Smarter, Shorter Way to Read Blogs",
-    url: "/blogs/lazy-reader-architecture",
-    date: "2025-06-06T04:00:00.000Z",
+    title: "Instagram",
+    url: "https://www.instagram.com/_porarisu",
+    Icon: Instagram,
   },
 ];
 
-export function BlogsDialog({ children }: { children: React.ReactNode }) {
+export function LinksDialog({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [data, setData] = useState(blogList);
@@ -76,8 +76,8 @@ export function BlogsDialog({ children }: { children: React.ReactNode }) {
         <DialogHeader className="p-4">
           <DialogTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <FileDigit className="size-5" />
-              Blogs
+              <Link2 className="size-5" />
+              Links
             </div>
             <div className="flex gap-1.5 text-xs pr-8 items-center text-foreground/80">
               <span className="bg-popover-foreground/20 text-primary font-bold px-1 flex justify-center items-center">
@@ -92,10 +92,10 @@ export function BlogsDialog({ children }: { children: React.ReactNode }) {
             </div>
           </DialogTitle>
           <DialogDescription className="text-left">
-            Me talking to myself, but publicly.
+            My API endpoints for human interaction.
           </DialogDescription>
         </DialogHeader>
-        <BlogList search={text} data={data} />
+        <LinkList data={data} search={text} />
         <DialogFooter className="w-full font-mono grid grid-cols-1">
           <DialogInput
             setOpen={setOpen}

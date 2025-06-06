@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowDown, ArrowUp, LayoutDashboard, Triangle } from "lucide-react";
+import { ArrowDown, ArrowUp, LayoutDashboard } from "lucide-react";
 import { useNvimStore } from "@/store/nvim-store";
 import { useCallback, useEffect, useState } from "react";
 import { DialogInput } from "../molecules/dialog-input";
@@ -189,8 +189,8 @@ export function ProjectsDialog({ children }: { children: React.ReactNode }) {
             Cool and exciting projects I’ve been lucky to be part of — building,
             learning, and growing.
           </DialogDescription>
-          <ProjectTree data={data} search={text} />
         </DialogHeader>
+        <ProjectTree data={data} search={text} />
         <DialogFooter className="w-full font-mono grid grid-cols-1">
           <DialogInput
             group={group}

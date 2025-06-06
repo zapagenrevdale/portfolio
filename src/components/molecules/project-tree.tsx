@@ -122,7 +122,7 @@ export const ProjectTree = ({
     <>
       <ScrollArea className="h-80 p-4 bg-gray-800 ">
         <div
-          className="w-68 sm:w-full space-y-0.5"
+          className="w-full space-y-0.5"
           ref={animationParent}
           id={`project-tree-${search}`}
         >
@@ -170,7 +170,7 @@ export const ProjectTree = ({
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
-      <div className="flex items-center justify-between mt-2">
+      <div className="flex items-center justify-between mt-2 px-3 py-1">
         <div className="flex items-center">
           <p className="px-2 text-popover-foreground w-fit bg-[#7880B5] text-sm sm:text-base">
             {mode}

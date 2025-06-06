@@ -330,7 +330,7 @@ Just like OMNI-X, the entire infrastructure is defined with TypeScript using SST
 [OpenNext Architecture](https://opennext.js.org/aws/inner_workings/architecture)
 ![OpenNext Architecture](https://opennext.js.org/architecture.png)
 
-Fortunately, SST provides a high-level Next.js construct that wraps the OpenNext deployment flow. All we needed to do was configure VPC settings, attach the custom domain, and tweak caching policies to match our performance requirements:
+Fortunately, SST provides a high-level [**Next.js construct**](https://sst.dev/docs/start/aws/nextjs/#serverless) that wraps the OpenNext deployment flow. All we needed to do was configure VPC settings, attach the custom domain, and tweak caching policies to match our performance requirements:
 
 \`\`\`typescript
 export function OmniInternal({ stack }: StackContext) {
