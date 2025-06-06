@@ -15,8 +15,7 @@ export function DialogInput({
   callback: (keyword: string) => void;
   setOpen: (val: boolean) => void;
 }) {
-
-  const setMode = useNvimStore(state => state.setMode)
+  const setMode = useNvimStore((state) => state.setMode);
   const inputRef = useInputKeyBinding<HTMLInputElement>({
     keyBind: ["/", { key: ":", shift: true }],
     group,
@@ -29,7 +28,7 @@ export function DialogInput({
         e.preventDefault();
         if (text === "q" || text === "bd") {
           setText("");
-          setMode("NORMAL")
+          setMode("NORMAL");
           setOpen(false);
         }
       }}

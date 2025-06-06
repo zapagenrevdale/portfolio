@@ -1,10 +1,10 @@
-"use client"
-import mermaid from "mermaid"
+"use client";
+import mermaid from "mermaid";
 
-import { JSX, useEffect, useRef } from "react"
+import { JSX, useEffect, useRef } from "react";
 
 export function MermaidDiagram({ chart }: { chart: string }): JSX.Element {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ref.current) {
@@ -23,15 +23,15 @@ export function MermaidDiagram({ chart }: { chart: string }): JSX.Element {
           tertiaryBkg: "#52525b",
         },
         fontFamily: "monospace",
-      })
+      });
 
       mermaid.render(`mermaid-${Date.now()}`, chart).then(({ svg }) => {
         if (ref.current) {
-          ref.current.innerHTML = svg
+          ref.current.innerHTML = svg;
         }
-      })
+      });
     }
-  }, [chart])
+  }, [chart]);
 
-  return <div ref={ref} className="flex justify-center" />
+  return <div ref={ref} className="flex justify-center" />;
 }

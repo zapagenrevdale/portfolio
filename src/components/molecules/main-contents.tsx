@@ -1,10 +1,17 @@
 import { NvimBadge } from "@/components/atoms/nvim-badge";
 import { ProjectsDialog } from "@/components/organisms/projects-dialog";
 import { useClickableKeyBinding } from "@/hooks/nvim-keybind";
+import { BlogsDialog } from "../organisms/blogs-dialog";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 export function MainContents() {
   const projectButtonRef = useClickableKeyBinding<HTMLButtonElement>({
     keyBind: "p",
+    group: "home",
+  });
+
+  const blogButtonRef = useClickableKeyBinding<HTMLButtonElement>({
+    keyBind: "b",
     group: "home",
   });
 
@@ -13,6 +20,17 @@ export function MainContents() {
       <label className="absolute left-3.5 -top-3 px-2 bg-card-foreground text-card">
         Contents
       </label>
+      <div className="flex gap-1.5 text-xs items-center text-foreground/80 absolute right-1 top-1">
+        <span className="bg-card-foreground/20 text-primary font-bold px-1 flex justify-center items-center">
+          <ArrowDown className="size-3 inline-flex" />j
+        </span>
+        <span className="bg-card-foreground/20 text-primary font-bold px-1 flex justify-center items-center">
+          <ArrowUp className="size-3 inline-flex" />k
+        </span>
+        <span className="bg-card-foreground/20 text-primary font-bold px-1 flex justify-center items-center">
+          enter
+        </span>
+      </div>
       <div className="mt-4 space-y-1.5">
         <ProjectsDialog>
           <button
@@ -24,26 +42,22 @@ export function MainContents() {
             Projects
           </button>
         </ProjectsDialog>
-        <button
-          className="group w-full flex items-center gap-2 nvim-line"
-          data-nvim="home"
-        >
-          <NvimBadge text="B" />
-          Blogs
-        </button>
+        <BlogsDialog>
+          <button
+            className="group w-full flex items-center gap-2 nvim-line"
+            data-nvim="home"
+            ref={blogButtonRef}
+          >
+            <NvimBadge text="B" />
+            Blogs
+          </button>
+        </BlogsDialog>
         <button
           className="group w-full flex items-center gap-2 nvim-line"
           data-nvim="home"
         >
           <NvimBadge text="L" />
           Links
-        </button>
-        <button
-          className="group w-full flex items-center gap-2 nvim-line"
-          data-nvim="home"
-        >
-          <NvimBadge text="/" />
-          Search
         </button>
       </div>
     </div>

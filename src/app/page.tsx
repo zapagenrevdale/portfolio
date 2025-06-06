@@ -17,22 +17,23 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <main className="w-full" id="main-page">
+      <main className="w-full px-1" id="main-page">
         <Card className="max-w-4xl font-mono mx-auto gap-2 pb-0 overflow-hidden relative">
           <div className="px-4 flex flex-col gap-6">
             <Header />
+
             <Link
               data-nvim="home"
               href="https://www.linkedin.com/company/focus-global-inc"
               target="_blank"
-              className="group flex gap-[1ch] mt-1 nvim-line"
+              className="relative group flex gap-[1ch] mt-1 nvim-line"
             >
               <h2 className="font-bold text-primary select-text">
-                # Full Stack Software Engineer
+                # Full Stack Software Engineer{" "}
+                <span className="group-focus:underline group-focus:underline-offset-2 text-primary-foreground/90">
+                  @FocusGlobalInc
+                </span>
               </h2>
-              <span className="group-focus:underline group-focus:underline-offset-2">
-                @FocusGlobalInc
-              </span>
             </Link>
             <Link
               href="https://www.aetherlenz.com"

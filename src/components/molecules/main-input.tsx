@@ -15,15 +15,16 @@ export function MainInput() {
     group: "home",
   });
 
-  const confetti = <motion.div
-    className="absolute top-0 left-0 w-full h-full"
-    initial={{ opacity: 1 }}
-    animate={{ opacity: 0 }}
-    transition={{ delay: 4, duration: 1 }}
-  >
-    <Confetti className="mx-auto" width={800} height={500} />
-  </motion.div>
-
+  const confetti = (
+    <motion.div
+      className="absolute top-0 left-0 w-full h-full"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 0 }}
+      transition={{ delay: 4, duration: 1 }}
+    >
+      <Confetti className="mx-auto" width={800} height={500} />
+    </motion.div>
+  );
 
   return (
     <>

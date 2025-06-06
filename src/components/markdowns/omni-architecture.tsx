@@ -14,6 +14,23 @@ OMNI is divided into two main components:
 
 - **OMNI-I (Internal)**: This powers our internal tools and workflows. It supports content and catalog maintenance (ECM), inventory updates, promotions management, and other backend post-order operations handled by our teams.
 
+\`\`\`mermaid
+graph TD
+    subgraph External
+      C[Customers] --> W1[Ecommerce Site #1]
+      C --> W2[Ecommerce Site #2]
+      C --> W3[Ecommerce Site #3]
+      W1 & W2 & W3 --> X[OMNI-X External API Layer]
+    end
+
+    subgraph Internal
+      U[Internal User] --> I[OMNI-I Internal Tools]
+    end
+
+    X --> DB[Shared Database]
+    I --> DB
+\`\`\`
+
 Both components share core infrastructure but are deployed and maintained independently to support different performance, security, and operational needs.
 
 ---
@@ -358,12 +375,14 @@ export function OmniInternal({ stack }: StackContext) {
 \`\`\`
 
 
-## Takeaways
+## Thoughts & Takeaways
 
-- **Same language, end-to-end:** TypeScript powers everything—from business logic to IaC—so us engineers stay in one mental model.
-- **Region-parallel CI/CD:** GitHub Actions + SST let us roll out to **ph, sg, my** simultaneously, shrinking release time.
-- **Managed, not manual:** High-level SST constructs (Service, NextjsSite) abstract away the gritty AWS plumbing, so we focus on features, not YAML.
-- **Scale-to-zero ready:** With serverless primitives (Fargate, Lambda, EventBridge) baked in, cost tracks usage and idle time stays cheap.
-`
+Setting up this kind of architecture is surprisingly smooth — **as long as you take time to understand what’s happening under the hood**. The services and tools (SST, OpenNext, Fargate) do a lot for you, but knowing how they work makes the whole process not just manageable, but **genuinely enjoyable**.
+
+- **Same language, end-to-end:** TypeScript powers everything—from app logic to infrastructure—so engineers can stay in one mental model across the stack.  
+- **Region-parallel CI/CD:** GitHub Actions + SST let us deploy to multiple regions in parallel, shrinking release time and reducing risk.  
+- **Managed, not manual:** SST’s high-level constructs (like *Service* and *NextjsSite*) abstract away complex AWS wiring, so we can focus on features instead of boilerplate.  
+- **Scalable & cost-efficient:** OMNI-X runs on ECS Fargate, while OMNI-I leverages the OpenNext serverless architecture—giving us scalable performance without the hassle of server management or over-provisioning.
+`;
 
 export default markdownContent;

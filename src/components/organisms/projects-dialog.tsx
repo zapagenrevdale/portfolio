@@ -10,11 +10,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { LayoutDashboard } from "lucide-react";
+import { ArrowDown, ArrowUp, LayoutDashboard, Triangle } from "lucide-react";
 import { useNvimStore } from "@/store/nvim-store";
 import { useCallback, useEffect, useState } from "react";
 import { DialogInput } from "../molecules/dialog-input";
-import { NvimBadge } from "../atoms/nvim-badge";
 
 const projectData = [
   {
@@ -46,6 +45,38 @@ const projectData = [
     name: "Work Projects",
     children: [
       {
+        name: "OMNI | FGI",
+        children: [
+          {
+            name: "OMNI-X (Ecommerce API)",
+            children: [
+              {
+                name: "architecture.md",
+                link: "/blogs/omni",
+              },
+            ],
+          },
+          {
+            name: "OMNI-I (Ecommerce Tool)",
+            children: [
+              {
+                name: "architecture.md",
+                link: "/blogs/omni",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Microsites | FGI",
+        children: [
+          {
+            name: "siematic-ph.html",
+            link: "https://siematic-philippines.com",
+          },
+        ],
+      },
+      {
         name: "Ecommerce | FGI",
         children: [
           { name: "sealy-ph.html", link: "https://www.sealy.ph" },
@@ -59,30 +90,6 @@ const projectData = [
             link: "https://www.colemanphilippines.com",
           },
           { name: "levoit-ph.html", link: "https://levoit.com.ph" },
-          { name: "alif.html", link: "https://alifeinfocus.ph" },
-        ],
-      },
-      {
-        name: "OMNI | FGI",
-        children: [
-          {
-            name: "OMNI-X (Ecommerce API)",
-            children: [
-              {
-                name: "architecture.md",
-                link: "/blogs/omni#extenal-architecture",
-              },
-            ],
-          },
-          {
-            name: "OMNI-I (Ecommerce Tool)",
-            children: [
-              {
-                name: "architecture.md",
-                link: "/blogs/omni#internal-architecture",
-              },
-            ],
-          },
         ],
       },
     ],
@@ -138,7 +145,7 @@ export function ProjectsDialog({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (open) {
-      setData(projectData)
+      setData(projectData);
     } else {
       setMode("NORMAL");
     }
@@ -167,10 +174,18 @@ export function ProjectsDialog({ children }: { children: React.ReactNode }) {
               Projects
             </div>
             <div className="flex gap-1.5 text-xs pr-8 items-center text-foreground/80">
-              <span className="bg-popover-foreground/20 text-primary font-bold size-4.5 flex justify-center items-center">/</span> search
+              <span className="bg-popover-foreground/20 text-primary font-bold px-1 flex justify-center items-center">
+                <ArrowDown className="size-3 inline-flex" />j
+              </span>
+              <span className="bg-popover-foreground/20 text-primary font-bold px-1 flex justify-center items-center">
+                <ArrowUp className="size-3 inline-flex" />k
+              </span>
+              <span className="bg-popover-foreground/20 text-primary font-bold px-1 flex justify-center items-center">
+                :q
+              </span>
             </div>
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-left">
             Cool and exciting projects I’ve been lucky to be part of — building,
             learning, and growing.
           </DialogDescription>

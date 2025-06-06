@@ -2,7 +2,7 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import React from "react";
 import { Folder, Globe, FileText, GitBranch, Search } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useNvimNavigate } from "@/hooks/nvim-navigation";
@@ -12,7 +12,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
 
 export type TreeItemType = {
   name: string;
@@ -121,9 +120,9 @@ export const ProjectTree = ({
 
   return (
     <>
-      <ScrollArea className="h-80 p-4 bg-gray-800">
+      <ScrollArea className="h-80 p-4 bg-gray-800 ">
         <div
-          className="space-y-0.5"
+          className="w-68 sm:w-full space-y-0.5"
           ref={animationParent}
           id={`project-tree-${search}`}
         >
@@ -148,9 +147,18 @@ export const ProjectTree = ({
           )}
         </div>
         <Tooltip>
-          <TooltipTrigger className="px-2 absolute right-2 bottom-2 bg-background/90 text-xs py-1 rounded">
+          <TooltipTrigger
+            className="px-2 absolute right-2 bottom-2 bg-background/90 text-xs py-1 rounded"
+            autoFocus={true}
+          >
             {search}
-            {search === "q" || search === "bd" ? <span className="ml-1.5 text-sm font-semibold text-primary leading-0">!</span> : <Search className="ml-1.5 inline-flex size-4 rotate-90" />}
+            {search === "q" || search === "bd" ? (
+              <span className="ml-1.5 text-sm font-semibold text-primary leading-0">
+                !
+              </span>
+            ) : (
+              <Search className="ml-1.5 inline-flex size-4 rotate-90" />
+            )}
           </TooltipTrigger>
           <TooltipContent className="rounded-xs">
             <p className="">
@@ -159,22 +167,21 @@ export const ProjectTree = ({
           </TooltipContent>
         </Tooltip>
 
+        <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
       <div className="flex items-center justify-between mt-2">
         <div className="flex items-center">
-          <p className="px-2 text-popover-foreground w-fit bg-[#7880B5]">
+          <p className="px-2 text-popover-foreground w-fit bg-[#7880B5] text-sm sm:text-base">
             {mode}
           </p>
-          <p className="px-2 text-[#7880B5] bg-popover">
-            <GitBranch className="inline-flex h-4" /> main
+          <p className="px-2 text-[#7880B5] bg-popover text-sm sm:text-base">
+            <GitBranch className="inline-flex h-4" /> dev
           </p>
-          <p className="px-2">
-            projects.tsx
-          </p>
+          <p className="text-xs sm:text-base px-2">projects.tsx</p>
         </div>
         <div className="flex">
-          <p className="px-2 text-card-foreground w-fit bg-[#7880B5] tracking-wider">
+          <p className="px-2 text-card-foreground w-fit bg-[#7880B5] tracking-wider text-sm sm:text-base">
             {index + 1}:{length}
           </p>
         </div>
