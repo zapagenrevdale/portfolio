@@ -107,7 +107,7 @@ export const LinkList = ({
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
-      <div className="flex items-center justify-between mt-2 px-3 pb-3">
+      <div className="flex items-center justify-between mt-2 px-3 pb-1">
         <div className="flex items-center">
           <p className="px-2 text-popover-foreground w-fit bg-[#7880B5] text-sm sm:text-base">
             {mode}

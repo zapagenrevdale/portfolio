@@ -17,13 +17,13 @@ import { BlogList } from "../molecules/blog-list";
 const blogList = [
   {
     title: "OMNI: An Architecture Overview",
-    url: "/blogs/omni",
+    url: "/blogs/omni-architecture",
     date: "2025-06-06T04:00:00.000Z",
   },
   {
     title: "A Glimpse into AetherLenz's Architecture",
     url: "/blogs/aetherlenz-architecture",
-    date: "2025-06-06T04:00:00.000Z",
+    date: "2025-06-07T05:00:00.000Z",
   },
   {
     title: "Lazy Reader: The Smarter, Shorter Way to Read Blogs",

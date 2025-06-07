@@ -33,7 +33,7 @@ const projectData = [
             children: [
               {
                 name: "architecture.md",
-                link: "/blogs/aetherlenz#architecture",
+                link: "/blogs/aetherlenz-architecture",
               },
             ],
           },
@@ -52,7 +52,7 @@ const projectData = [
             children: [
               {
                 name: "architecture.md",
-                link: "/blogs/omni",
+                link: "/blogs/omni-architecture",
               },
             ],
           },
@@ -61,7 +61,7 @@ const projectData = [
             children: [
               {
                 name: "architecture.md",
-                link: "/blogs/omni",
+                link: "/blogs/omni-architecture",
               },
             ],
           },
