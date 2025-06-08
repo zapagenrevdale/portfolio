@@ -11,11 +11,11 @@ export function CalendarDialog({ children }: { children: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="h-[90vh] max-w-3xl w-full p-0 ">
+      <DialogContent className="max-w-3xl w-full p-0 overflow-hidden">
         <DialogTitle className="hidden" aria-hidden>
           Book a meeting w/ Genrev
         </DialogTitle>
-        <ScrollArea className="w-full flex justify-center items-center">
+        <ScrollArea className="max-h-[90vh] w-full flex justify-center items-center">
           <Cal
             calLink="/genrev-zapa/chat-with-genrev"
             config={{
