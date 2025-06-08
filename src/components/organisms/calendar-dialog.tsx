@@ -15,7 +15,7 @@ export function CalendarDialog({ children }: { children: React.ReactNode }) {
         <DialogTitle className="hidden" aria-hidden>
           Book a meeting w/ Genrev
         </DialogTitle>
-        <ScrollArea className="h-[90vh] w-full flex justify-center items-center">
+        <ScrollArea className="w-full flex justify-center items-center">
           <Cal
             calLink="/genrev-zapa/chat-with-genrev"
             config={{
