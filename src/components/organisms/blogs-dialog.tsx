@@ -26,8 +26,8 @@ const blogList = [
     date: "2025-06-07T05:00:00.000Z",
   },
   {
-    title: "Lazy Reader: The Smarter, Shorter Way to Read Blogs",
-    url: "/blogs/lazy-reader-architecture",
+    title: "Lazy Reader: How I Built a Smarter, Shorter Way to Read Blogs",
+    url: "/blogs/lazy-reader",
     date: "2025-06-06T04:00:00.000Z",
   },
 ];

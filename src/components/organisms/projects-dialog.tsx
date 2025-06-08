@@ -29,13 +29,21 @@ const projectData = [
           },
           { name: "organizer.html", link: "https://organizer.aetherlenz.com/" },
           {
-            name: "Documentation",
-            children: [
-              {
-                name: "architecture.md",
-                link: "/blogs/aetherlenz-architecture",
-              },
-            ],
+            name: "architecture.md",
+            link: "/blogs/aetherlenz-architecture",
+          },
+        ],
+      },
+      {
+        name: "LazyReader",
+        children: [
+          {
+            name: "lazy-reader.html",
+            link: "https://lazy-reader.genrevzapa.com/",
+          },
+          {
+            name: "architecture.md",
+            link: "/blogs/lazy-reader",
           },
         ],
       },

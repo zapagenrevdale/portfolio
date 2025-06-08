@@ -7,14 +7,16 @@ import { Badge } from "@/components/ui/badge";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { MermaidDiagram } from "@/components/atoms/mermaid-diagram";
-import AetherLenzBlogContent from "@/components/markdowns/aetherlenz-architecture";
+import Content from "@/components/markdowns/lazy-reader";
 import { CodeCopy } from "@/components/atoms/code-copy";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Blogs | A Glimpse into AetherLenz's Architecture",
-  description: "A Glimpse into AetherLenz's Architecture",
-  keywords: "architecture, sst, overview",
+  title:
+    "Blogs | Lazy Reader: How I Built a Smarter, Shorter Way to Read Blogs",
+  description: "Lazy Reader: How I Built a Smarter, Shorter Way to Read Blogs",
+  keywords:
+    "event-driven, sst, lazy-reader, scraping, summarizer, audio-generation",
 };
 
 const customDarkTheme = {
@@ -40,9 +42,7 @@ export default function Blog() {
         <CardHeader className="flex items-center justify-between rounded-t-lg p-3 m-0 border-b border-card-foreground">
           <div className="flex items-center gap-2">
             <FileText size={16} className="text-green-400" />
-            <span className="font-mono text-sm">
-              aetherlenz-architecture.md
-            </span>
+            <span className="font-mono text-sm">lazy-reader.md</span>
           </div>
           <Link href="/">
             <ArrowLeft className="size-5" />
@@ -173,7 +173,7 @@ export default function Blog() {
               ),
             }}
           >
-            {AetherLenzBlogContent}
+            {Content}
           </ReactMarkdown>
         </CardContent>
       </Card>
