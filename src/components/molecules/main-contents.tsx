@@ -4,6 +4,7 @@ import { useClickableKeyBinding } from "@/hooks/nvim-keybind";
 import { BlogsDialog } from "../organisms/blogs-dialog";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { LinksDialog } from "../organisms/links-dialog";
+import { CalendarDialog } from "../organisms/calendar-dialog";
 
 export function MainContents() {
   const projectButtonRef = useClickableKeyBinding<HTMLButtonElement>({
@@ -18,6 +19,11 @@ export function MainContents() {
 
   const linksButtonRef = useClickableKeyBinding<HTMLButtonElement>({
     keyBind: "l",
+    group: "home",
+  });
+
+  const bookMeetingButtonRef = useClickableKeyBinding<HTMLButtonElement>({
+    keyBind: "m",
     group: "home",
   });
 
@@ -40,12 +46,14 @@ export function MainContents() {
       <div className="mt-4 space-y-1.5">
         <ProjectsDialog>
           <button
-            className="group w-full flex items-center gap-2 nvim-line"
+            className="group w-full flex items-center gap-2 nvim-line "
             ref={projectButtonRef}
             data-nvim="home"
           >
             <NvimBadge text="P" />
-            Projects
+            <span className="group-hover:underline underline-offset-2 cursor-pointer">
+              Projects
+            </span>
           </button>
         </ProjectsDialog>
         <BlogsDialog>
@@ -55,7 +63,9 @@ export function MainContents() {
             ref={blogButtonRef}
           >
             <NvimBadge text="B" />
-            Blogs
+            <span className="group-hover:underline underline-offset-2">
+              Blogs
+            </span>
           </button>
         </BlogsDialog>
         <LinksDialog>
@@ -65,9 +75,23 @@ export function MainContents() {
             ref={linksButtonRef}
           >
             <NvimBadge text="L" />
-            Links
+            <span className="group-hover:underline underline-offset-2">
+              Links
+            </span>
           </button>
         </LinksDialog>
+        <CalendarDialog>
+          <button
+            className="group w-full flex items-center gap-2 nvim-line"
+            data-nvim="home"
+            ref={bookMeetingButtonRef}
+          >
+            <NvimBadge text="M" />
+            <span className="group-hover:underline underline-offset-2">
+              Book a Meeting
+            </span>
+          </button>
+        </CalendarDialog>
       </div>
     </div>
   );

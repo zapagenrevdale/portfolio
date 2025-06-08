@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { Github, LayoutDashboard } from "lucide-react";
+import { Github, LayoutDashboard, Mail } from "lucide-react";
 import { ProjectsDialog } from "./projects-dialog";
 import { useClickableKeyBinding } from "@/hooks/nvim-keybind";
 
 export function Header() {
-  //const resumeButtonRef = useClickableKeyBinding<HTMLAnchorElement>({
-  //  keyBind: {
-  //    key: "r",
-  //  },
-  //  group: "home",
-  //});
+  const resumeButtonRef = useClickableKeyBinding<HTMLAnchorElement>({
+    keyBind: {
+      key: "e",
+    },
+    group: "home",
+  });
 
   const githubButtonRef = useClickableKeyBinding<HTMLAnchorElement>({
     keyBind: {
@@ -27,16 +27,14 @@ export function Header() {
         <strong>GenrevZapa</strong>
       </Link>
       <nav className="hidden md:flex gap-5">
-        {/* 
         <Link
           className="flex gap-2 items-start"
           ref={resumeButtonRef}
-          href="/"
+          href="mailto:zapagenrevdale@gmail"
         >
-          <FileText className="size-5" />
-          <p className="font-thin">[R]esume</p>
+          <Mail className="size-5" />
+          <p className="font-thin">[E]mail</p>
         </Link>
-        */}
         <ProjectsDialog>
           <button className="flex gap-2 items-start">
             <LayoutDashboard className="size-5" />
@@ -54,16 +52,13 @@ export function Header() {
         </Link>
       </nav>
       <nav className="flex md:hidden gap-4">
-        {/* 
-          <Link
-            className="flex gap-2 items-start"
-            ref={resumeButtonRef}
-            href="/resume"
-            target="_blank"
-          >
-            <FileText className="size-5" />
-          </Link>
-        */}
+        <Link
+          className="flex gap-2 items-start"
+          ref={resumeButtonRef}
+          href="mailto:zapagenrevdale@gmail"
+        >
+          <Mail className="size-5" />
+        </Link>
         <ProjectsDialog>
           <button className="flex gap-2 items-start">
             <LayoutDashboard className="size-5" />
