@@ -33,7 +33,7 @@ const blogList = [
   {
     title: "B2B SaaS: How I Automated Preview Deployments and On-Prem Delivery",
     url: "/blogs/b2b-saas",
-    date: "2025-06-022T012:00:00.000Z",
+    date: "2025-06-022T10:00:00.000Z",
   },
 ];
 
