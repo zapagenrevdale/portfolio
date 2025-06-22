@@ -30,6 +30,11 @@ const blogList = [
     url: "/blogs/lazy-reader",
     date: "2025-06-06T04:00:00.000Z",
   },
+  {
+    title: "B2B SaaS: How I Automated Preview Deployments and On-Prem Delivery",
+    url: "/blogs/b2b-saas",
+    date: "2025-06-022T012:00:00.000Z",
+  },
 ];
 
 export function BlogsDialog({ children }: { children: React.ReactNode }) {
