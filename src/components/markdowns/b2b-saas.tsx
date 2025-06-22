@@ -2,7 +2,7 @@ const markdownContent = `# B2B SaaS: How I Automated Preview Deployments and On-
 
 ## Introduction  
 
-Recently, I was catching up with a friend working on their **startup**. They were facing a challenge that I **think a lot of early-stage SaaS companies run into** — no proper **CI/CD pipeline** and no way to spin up **PR preview deployments** for testing new features before merging them in.
+Recently, I was catching up with a friend working on their startup. They were dealing with a common early-stage SaaS challenge — lacking a reliable way to test new features in isolation before merging, especially through PR-based preview deployments.
 
 That conversation got me thinking. At **AetherLenz** (a startup I co-founded), I’ve also been meaning to set up a clean **PR preview deployment workflow**. And while I was at it, I thought — why not build a small **proof-of-concept (POC)** that not only handles **preview deployments** but also covers **on-premise delivery** in a **lightweight**, **startup-friendly** way that’s **quick to ship** and **easy to maintain**?
 
